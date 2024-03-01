@@ -1,5 +1,5 @@
 # GMD-Project
-The Roll a ball game can be find by clicking on the following link: https://github.com/BKFanni/Roll-a-Ball
+The Roll a ball game can be found by clicking on the following link: https://github.com/BKFanni/Roll-a-Ball
 
 Blogpost #2
 
