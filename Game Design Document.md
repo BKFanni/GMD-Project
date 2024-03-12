@@ -23,13 +23,14 @@ Teenagers to young adults (13+), people who understand English
 
 Unique Selling Points
 
-It is story-driven, challenging, and allows the player to discover new territories and adventures.
+It is story-driven, and challenging, and allows the player to discover new territories and adventures.
 
 Product Design
 
 Player Experience and Game POV
+The Player can walk, run, and attack, The Game will be a Side-view game.
 
-The player is a knight.The game is set in an outdoor environment, characterized by picturesque rivers, dense forests, and quaint villages nestled amidst the natural beauty of the landscape.One of the emotions that player would feel is satisfaction by achieving goals. By completing the levels he gets closer to the final goal of the game, making progress with each level. The player will also feel excitement as he discovers new elements and challenges of the game.
+The player is a knight. The game is set in an outdoor environment, characterized by picturesque rivers, dense forests, and quaint villages nestled amidst the natural beauty of the landscape.One of the emotions that player would feel is satisfaction by achieving goals. By completing the levels he gets closer to the final goal of the game, making progress with each level. The player will also feel excitement as he discovers new elements and challenges of the game.
 
 Visual and Audio style
 
@@ -43,7 +44,7 @@ Monetization
 
 Premium Pricing: Offer the base game at an upfront price, allowing players to purchase the complete experience without additional transactions. By pricing the game upfront, players are assured of receiving a complete and polished experience without any barriers to progression or enjoyment. This approach respects the value of the content provided and establishes a clear expectation of quality for players. In-App Purchases (IAPs): Integrate optional cosmetic items, character customization options, or convenience features as in-app purchases. These could include alternate character skins, decorative items for in-game environments, or shortcuts to unlock content faster. Optional in-app purchases offer players the opportunity to personalize their gaming experience and support ongoing development efforts. DLCs and Expansions: Release post-launch DLCs or expansions that introduce new story arcs, characters, or gameplay mechanics. These additional content packs can provide players with extended adventures and deeper immersion into the game world, catering to dedicated fans who are eager for more content. By offering DLCs and expansions, the development team demonstrates their commitment to continuously enriching the game and responding to player feedback and demands.
 
-Platform(s),Technology,Scope
+Platform(s), Technology,Scope
 
 ‘The Princess’ Tale’ is a 2D game made with Unity and can be played on arcade machine. The development team consists of 2 people. To create a first playable version of the 2D game within 2-3 months, the development team will need to focus on implementing core gameplay mechanics and basic features essential for player interaction. To finish the game it could take approximately 4-6 months considering the size of the development team.
 
