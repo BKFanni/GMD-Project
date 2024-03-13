@@ -9,15 +9,20 @@ public class PlayerMovement : MonoBehaviour
     float jumpPower = 5f;
     bool isGrounded = false;
 
+    int maxJumps = 2;
+
+    int jumpsLeft;
+
     Rigidbody2D rb;
-    Collider2D col;
+
     Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>(); 
+        jumpsLeft = maxJumps;
     }
 
     // Update is called once per frame
@@ -28,14 +33,23 @@ public class PlayerMovement : MonoBehaviour
 
         FlipSprite();
 
-        if(Input.GetButtonDown("Jump") && isGrounded)
+        if (isGrounded && rb.velocity.y <= 0)
+        {
+            jumpsLeft = maxJumps;
+        }
+    
+
+        if(Input.GetButtonDown("Jump") && jumpsLeft > 0)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
-            isGrounded = false;
+            jumpsLeft--;
+            isGrounded=false;
             animator.SetBool("isJumping", !isGrounded);
+            
         }
+
+      
         
-        OnTriggerEnter2D(col);
     }
 
     private void FixedUpdate()
@@ -55,6 +69,7 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = ls;
         }
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
