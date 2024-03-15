@@ -47,9 +47,6 @@ TagManager:
   - name: Back_Object
     uniqueID: 3188016563
     locked: 0
-  - name: Moving_Object
-    uniqueID: 562163289
-    locked: 0
   - name: Empty
     uniqueID: 2239999465
     locked: 0
