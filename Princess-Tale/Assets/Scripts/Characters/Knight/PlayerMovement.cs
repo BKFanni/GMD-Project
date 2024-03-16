@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -17,12 +18,19 @@ public class PlayerMovement : MonoBehaviour
 
     Animator animator;
 
+    private Transform originalParent;
+
+    private TextMeshPro username;
+
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>(); 
         jumpsLeft = maxJumps;
+        originalParent = transform.parent;
+        
     }
 
     // Update is called once per frame
@@ -76,4 +84,18 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = true;
         animator.SetBool("isJumping", !isGrounded);
     }
+
+
+    public void SetParent(Transform newParent)
+    {
+        originalParent= transform.parent;
+        transform.parent = newParent;
+    }
+
+    public void ResetParent()
+    {
+        transform.parent = originalParent;
+    }
+
+  
 }
