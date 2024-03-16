@@ -8,6 +8,11 @@ public class settings : MonoBehaviour
     {
         audioMixer.SetFloat("volume", volume);
     }
+    public void setMusic(float music)
+    {
+        audioMixer.SetFloat("music", music);
+    }
+
     public void goToMainMenu()
     {
         SceneManager.LoadScene(0);
