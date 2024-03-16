@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -19,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
 
     private Transform originalParent;
 
+    private TextMeshPro username;
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>(); 
         jumpsLeft = maxJumps;
         originalParent = transform.parent;
+        
     }
 
     // Update is called once per frame
