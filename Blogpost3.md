@@ -2,10 +2,18 @@
 
 (Marwa)
 In this third blog post, we're starting to document our progress on The GMD Project. Before diving into the details, we ensured everyone was on the same page regarding the game idea and important aspects like design, platforms, technology, and scope.
-
-Our first step was setting up a 2D project and making some adjustments in Unity to make it easier to work with GitHub. For example, we ensured meta files were visible and configured text settings for better readability.
+My first step was setting up a 2D project and making some adjustments in Unity to make it easier to work with GitHub. For example, I ensured metadata files were visible and configured text settings for better readability.
 
 Two important packages were installed: the Input System and Cinemachine. The Input System helps us make player controls easier and more flexible. Cinemachine gives us some neat tools to make our game look more cinematic and exciting.
+I also started to create the tail map for the first level it was like a puzzle where it gives the possibility for the developer to create his own choices for the game environment.
+
+In this kind of game, the focus is on the movement of the main character,  so I added the player as the following object in the cinemachine inspector.
+
+I created the main menu scene where there is a welcoming message displayed to the user and choices like Play the game or Quit, a settings icon in the top left, and has (onClick) event to load the settings scene, so a special script is made for the main menu where it handle events like load the game, quit and load the settings options scene, One important step is adding all scenes to Build settings window.
+
+Regarding settings options, the user can control the volume level, Music level, and graphic quality level, So I added a slider, and from the inspector attached function (setVollume) to on volume change event so the user can change the master AudioMixer, to make this work I created a new AudioMixer and exposed parameter and called it Volume, I did the same thing to the Music Slider.
+
+Graphic quality is a dropdown list where the user can choose from Low, medium, and high quality, for this I added a new script where the value of each choice is set as a parameter of setGraphic level function.
 
 
 (Fanni)
