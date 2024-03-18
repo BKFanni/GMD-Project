@@ -14,6 +14,7 @@ I created the main menu scene where there is a welcoming message displayed to th
 Regarding settings options, the user can control the volume level, Music level, and graphic quality level, So I added a slider, and from the inspector attached function (setVollume) to on volume change event so the user can change the master AudioMixer, to make this work I created a new AudioMixer and exposed parameter and called it Volume, I did the same thing to the Music Slider.
 
 Graphic quality is a dropdown list where the user can choose from Low, medium, and high quality, for this I added a new script where the value of each choice is set as a parameter of setGraphic level function.
+To save the user settings, I edited the script for the settings so it saves the last value for volume and music by using playerPrefs.setFloat in the update function and playerPrefs.GetFloat in the start function so It will keep the value for the slider.
 
 
 (Fanni)
