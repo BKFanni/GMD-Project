@@ -2,17 +2,33 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.Audio;
 using TMPro;
+using UnityEngine.UI;
 public class settings : MonoBehaviour
 {
-    public AudioMixer audioMixer;
+    public AudioMixer volumeMixer;
+    public AudioMixer musicMixer;
     public TMP_Dropdown graphicsDropdown;
+    public float volumeValue;
+    public float musicValue;
+    public Slider volumeSlider;
+    void start()
+    {
+        volumeSlider.value = PlayerPrefs.GetFloat("");
+    }
+    void update()
+    {
+        volumeMixer.SetFloat("volume", volumeValue);
+        musicMixer.SetFloat("music", musicValue);
+        PlayerPrefs.SetFloat("volume", volumeValue);
+        PlayerPrefs.SetFloat("music", musicValue);
+    }
     public void setVolume(float volume)
     {
-        audioMixer.SetFloat("volume", volume);
+        volumeValue = volume;
     }
     public void setMusic(float music)
     {
-        audioMixer.SetFloat("music", music);
+        musicValue = music;
     }
     public void changeGraphicQuality()
     {

@@ -665,6 +665,7 @@ GameObject:
   m_Component:
   - component: {fileID: 310983803}
   - component: {fileID: 310983804}
+  - component: {fileID: 310983805}
   m_Layer: 5
   m_Name: volume
   m_TagString: Untagged
@@ -748,7 +749,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1188234854}
         m_TargetAssemblyTypeName: settings, Assembly-CSharp
         m_MethodName: setVolume
-        m_Mode: 4
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -757,6 +758,24 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &310983805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310983802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55b5dc3c24e9a66408235967183f23ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeMixer: {fileID: 0}
+  musicMixer: {fileID: 0}
+  graphicsDropdown: {fileID: 0}
+  volumeValue: 0
+  musicValue: 0
+  volumeSlider: {fileID: 310983804}
 --- !u!1 &481831449
 GameObject:
   m_ObjectHideFlags: 0
@@ -2034,8 +2053,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55b5dc3c24e9a66408235967183f23ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioMixer: {fileID: 0}
+  volumeMixer: {fileID: 0}
+  musicMixer: {fileID: 0}
   graphicsDropdown: {fileID: 0}
+  volumeValue: 0
+  musicValue: 0
+  volumeSlider: {fileID: 0}
 --- !u!1 &1307247410
 GameObject:
   m_ObjectHideFlags: 0
@@ -3061,6 +3084,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1734977221}
   - component: {fileID: 1734977222}
+  - component: {fileID: 1734977223}
   m_Layer: 5
   m_Name: Music
   m_TagString: Untagged
@@ -3144,7 +3168,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1188234854}
         m_TargetAssemblyTypeName: settings, Assembly-CSharp
         m_MethodName: setMusic
-        m_Mode: 4
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3153,6 +3177,24 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1734977223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734977220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55b5dc3c24e9a66408235967183f23ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeMixer: {fileID: 0}
+  musicMixer: {fileID: 0}
+  graphicsDropdown: {fileID: 0}
+  volumeValue: 0
+  musicValue: 0
+  volumeSlider: {fileID: 1734977222}
 --- !u!1 &1754372777
 GameObject:
   m_ObjectHideFlags: 0
