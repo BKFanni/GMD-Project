@@ -457,7 +457,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: High
+  m_text: Ultra
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1163,6 +1163,8 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
+    - m_Text: Ultra
+      m_Image: {fileID: 0}
     - m_Text: High
       m_Image: {fileID: 0}
     - m_Text: Meduim
@@ -2053,9 +2055,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55b5dc3c24e9a66408235967183f23ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeMixer: {fileID: 0}
-  musicMixer: {fileID: 0}
-  graphicsDropdown: {fileID: 0}
+  volumeMixer: {fileID: 24100000, guid: 497c6a6f278e9e247bd510f02fee62cc, type: 2}
+  musicMixer: {fileID: 24100000, guid: 586b37cb564c8e244b750a1ce2747db6, type: 2}
+  graphicsDropdown: {fileID: 600946975}
   volumeValue: 0
   musicValue: 0
   volumeSlider: {fileID: 0}
