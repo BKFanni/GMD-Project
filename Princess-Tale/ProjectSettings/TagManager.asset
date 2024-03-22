@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ladder
   - Level2
+  - PickUp
+  - key
   layers:
   - Default
   - TransparentFX

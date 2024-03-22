@@ -12,18 +12,18 @@ public class Enter_NextScene : MonoBehaviour
     //[SerializeField] private Scene scene;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.gameObject.tag == "Player")
+        if (collider.gameObject.tag == "Player")
         {
             SceneManager.LoadSceneAsync("Level2");
         }
