@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerPickUp : MonoBehaviour
 {
+    public pickUp pickUp;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,9 +18,10 @@ public class PlayerPickUp : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.CompareTag("PickUp"))
+        if (collider.CompareTag("PickUp") || collider.CompareTag("key"))
         {
             Destroy(collider.gameObject);
+            pickUp.count++;
         }
     }
 }

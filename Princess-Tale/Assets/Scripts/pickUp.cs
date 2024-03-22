@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class pickUp : MonoBehaviour
 {
+  public int count;
   // Start is called before the first frame update
   void Start()
   {
