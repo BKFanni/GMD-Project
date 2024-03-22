@@ -10,11 +10,11 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     public void playGame()
     {
-        SceneManager.LoadSceneAsync(1);
+        SceneManager.LoadSceneAsync(2);
     }
     public void goToSettings()
     {
-        SceneManager.LoadSceneAsync(2);
+        SceneManager.LoadSceneAsync(1);
     }
     public void quitApp()
     {

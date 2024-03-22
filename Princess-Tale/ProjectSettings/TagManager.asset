@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - PickUp
-  - diamond
+  - Ladder
+  - Level2
   layers:
   - Default
   - TransparentFX
