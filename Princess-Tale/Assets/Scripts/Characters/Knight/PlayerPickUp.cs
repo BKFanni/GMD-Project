@@ -8,7 +8,7 @@ public class PlayerPickUp : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        pickUp = FindObjectOfType<pickUp>();
     }
 
     // Update is called once per frame
@@ -18,7 +18,7 @@ public class PlayerPickUp : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.CompareTag("PickUp") || collider.CompareTag("key"))
+        if (collider.CompareTag("PickUp"))
         {
             Destroy(collider.gameObject);
             pickUp.count++;
