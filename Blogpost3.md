@@ -29,7 +29,11 @@ Then I moved on to setting up the platform for the first level of the game. I us
 
 I also started on the main menu UI, creating the title and adding animation to it. Then I made a simple play button with onclick functionality. After that Marwa continued working on the UI. After she finished with the first part of the UI, I helped her fix the buttons so that they work (EventSystem was missing) then I modified the nickname field so that it is an input field not only an image and also added the icon of the Player in the top-left corner. 
 
-(Add screenshots how it looks so far)
+Later on, I continued working on the Level1 platform and it is technically finished, I might add some more background objects in the future (but it is not high priority at the moment). In this platform the player is also able to climb up on a ladder and if he picks up the keys, then he can enter the next level of the game. So I made the transition from Level1 to Level2, but it needs some polishing implementation wise so that is what I am working on now. Level2 is just a very basic platform right now, but we will work on it soon as well.
+
+Screenshots of how the UI looks so far: 
+<img src="images/settings_ui_pt.png">
+<img src="images/ui_pt.png">
 
 
 
