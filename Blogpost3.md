@@ -17,8 +17,8 @@ Graphic quality is a dropdown list where the user can choose from Low, medium, a
 To save the user settings, I edited the script for the settings so it saves the last value for volume and music by using playerPrefs.setFloat in the update function and playerPrefs.GetFloat in the start function so It will keep the value for the slider.
 After that, I worked on pickup items for the project, I chose diamonds and gold to be the objects for collecting during the first level, each object has rigidbody2d and box collider2D and IsTrigger Enable so whenever the player toch the object, OnTriggerEnter2D function called and then it will disappear by  Destroy(collider.gameObject).
 Here are some screenshots of how level 1 looks like.
-<img src="images/1.png">
-<img src="images/2.png">
+<img src="images/image1.png">
+<img src="images/image2.png">
 
 
 (Fanni)
