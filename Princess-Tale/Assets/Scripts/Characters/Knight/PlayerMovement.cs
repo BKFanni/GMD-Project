@@ -95,6 +95,7 @@ public class PlayerMovement : MonoBehaviour
     public void ResetParent()
     {
         transform.parent = originalParent;
+        DontDestroyOnLoad(gameObject);
     }
 
   
