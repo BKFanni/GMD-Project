@@ -8,6 +8,7 @@ TagManager:
   - Level2
   - PickUp
   - key
+  - enemy1
   layers:
   - Default
   - TransparentFX
