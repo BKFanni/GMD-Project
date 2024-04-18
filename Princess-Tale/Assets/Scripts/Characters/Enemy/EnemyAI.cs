@@ -1,77 +1,60 @@
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
-[RequireComponent(typeof(BoxCollider2D))]
 public class EnemyAI : MonoBehaviour
 {
+    public Transform[] patrolPoints;
+    public float moveSpeed = 3f;
+    public float idleTime = 2f;
+    public bool isPatrolling = true;
 
-    public List<Transform> points;
-
-    public int nextID = 0;
-    int idChangeValue = 1;
-    public float speed = 2;
-
-    private void Reset()
+    private int currentPatrolIndex = 0;
+    private bool isIdling = false;
+    void Start()
     {
-        Init();
+        StartCoroutine(Patrol());
     }
 
-    void Init()
+    void Update()
     {
 
-        GetComponent<BoxCollider2D>().isTrigger = true;
-
-
-        GameObject root = new GameObject(name + "_Root");
-
-        root.transform.position = transform.position;
-
-        transform.SetParent(root.transform);
-
-        GameObject waypoints = new GameObject("Waypoints");
-
-        waypoints.transform.SetParent(root.transform);
-        waypoints.transform.position = root.transform.position;
-
-        GameObject p1 = new GameObject("Point1"); p1.transform.SetParent(waypoints.transform); p1.transform.position = root.transform.position;
-        GameObject p2 = new GameObject("Point2"); p2.transform.SetParent(waypoints.transform); p2.transform.position = root.transform.position;
-
-
-        points = new List<Transform>();
-        points.Add(p1.transform);
-        points.Add(p2.transform);
-    }
-
-    private void Update()
-    {
-        MoveToNextPoint();
-    }
-
-    void MoveToNextPoint()
-    {
-
-        Transform goalPoint = points[nextID];
-
-        if (goalPoint.transform.position.x > transform.position.x)
-            transform.localScale = new Vector3(-1, 1, 1);
-        else
-            transform.localScale = new Vector3(1, 1, 1);
-        transform.position = Vector2.MoveTowards(transform.position, goalPoint.position, speed * Time.deltaTime);
-        if (Vector2.Distance(transform.position, goalPoint.position) < 0.2f)
+        if (!isIdling && isPatrolling)
         {
-            if (nextID == points.Count - 1)
-                idChangeValue = -1;
-            if (nextID == 0)
-                idChangeValue = 1;
-            nextID += idChangeValue;
+            MoveTowardsPatrolPoint();
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void MoveTowardsPatrolPoint()
     {
-        if (collision.tag == "Player")
+        Vector3 targetPosition = patrolPoints[currentPatrolIndex].position;
+
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+
+        if (transform.position == targetPosition)
         {
-            //FindObjectOfType<LifeCount>().LoseLife();
+            StartCoroutine(Idle());
+        }
+    }
+
+    IEnumerator Idle()
+    {
+        isIdling = true;
+        yield return new WaitForSeconds(idleTime);
+
+        isIdling = false;
+        currentPatrolIndex = (currentPatrolIndex + 1) % patrolPoints.Length;
+    }
+
+    IEnumerator Patrol()
+    {
+        while (true)
+        {
+            if (!isIdling)
+            {
+                MoveTowardsPatrolPoint();
+            }
+
+            yield return null;
         }
     }
 }
