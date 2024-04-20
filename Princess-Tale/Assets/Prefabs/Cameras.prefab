@@ -66,7 +66,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: -1
   far clip plane: 1000
   field of view: 34
   orthographic: 1
@@ -264,7 +264,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3191722420610398419}
   - component: {fileID: 324004322789798682}
-  - component: {fileID: 8330396280794450567}
+  - component: {fileID: 4427372217225463212}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -299,7 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8330396280794450567
+--- !u!114 &4427372217225463212
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -399,7 +399,7 @@ MonoBehaviour:
   m_Lens:
     FieldOfView: 34
     OrthographicSize: 6.452418
-    NearClipPlane: 0.3
+    NearClipPlane: -1
     FarClipPlane: 1000
     Dutch: 0
     ModeOverride: 0
