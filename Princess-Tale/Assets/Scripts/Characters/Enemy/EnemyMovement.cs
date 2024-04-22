@@ -3,55 +3,44 @@ using System.Collections;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] protected Transform pointA, pointB;
-    [SerializeField] protected int moveSpeed;
+    public Transform pointA;
+    public Transform pointB;
+    public float moveSpeed = 2f;
+    public float idleTime = 1f;
 
-    private Vector3 _currentTarget;
+    private Transform currentTarget;
     private Animator animator;
-
-
 
     void Start()
     {
-        _currentTarget = pointA.position;
+        currentTarget = pointA;
         animator = GetComponent<Animator>();
-
-    }
-    void Update()
-    {
-        MoveBetweenPoints();
+        StartCoroutine(MoveBetweenPoints());
     }
 
-    void MoveBetweenPoints()
+    IEnumerator MoveBetweenPoints()
     {
-        if (transform.position == pointA.position)
+        while (true)
         {
-            _currentTarget = pointB.position;
 
-            animator.SetTrigger("Idle");
+            while (Vector2.Distance(transform.position, currentTarget.position) > 0.1f)
+            {
+                animator.SetBool("isMoving", true);
+                transform.position = Vector2.MoveTowards(transform.position, currentTarget.position, moveSpeed * Time.deltaTime);
+                yield return null;
+            }
 
-        }
-        else if (transform.position == pointB.position)
-        {
-            _currentTarget = pointA.position;
-            animator.SetTrigger("Idle");
-        }
-        else
-        {
-            transform.position = Vector3.MoveTowards(transform.position, _currentTarget, moveSpeed * Time.deltaTime);
-            animator.SetTrigger("Walk");
-        }
-        FlipSprite();
-    }
-    void FlipSprite()
-    {
-        if (_currentTarget == pointA.position)
-        {
-            transform.localScale = new Vector3(1, 1, 1);
-        }
-        else
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
+
+            animator.SetBool("isMoving", false);
+            yield return new WaitForSeconds(idleTime);
+
+
+            currentTarget = (currentTarget == pointA) ? pointB : pointA;
+
+
+            Vector3 newScale = transform.localScale;
+            newScale.x *= -1;
+            transform.localScale = newScale;
         }
     }
 }

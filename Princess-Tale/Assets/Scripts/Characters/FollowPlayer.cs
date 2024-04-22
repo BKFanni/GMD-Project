@@ -21,7 +21,7 @@ public class FollowPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Attack();
         FollowTarget();
     }
 
@@ -62,6 +62,14 @@ public class FollowPlayer : MonoBehaviour
 
     void Attack()
     {
-
+        if (Vector2.Distance(transform.position, playerPosition.position) < targetpos)
+        {
+            animator.SetBool("Running",false);
+            animator.SetBool("Attack",true);
+        }
+        else
+        {
+            animator.SetBool("Attack",false);
+        }
     }
 }
