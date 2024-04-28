@@ -21,7 +21,7 @@ public class PlayerPickUp : MonoBehaviour
         if (collider.CompareTag("PickUp"))
         {
             Destroy(collider.gameObject);
-            pickUp.count++;
+            //  pickUp.count++;
         }
     }
 }
