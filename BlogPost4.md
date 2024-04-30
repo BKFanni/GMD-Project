@@ -6,6 +6,18 @@ I implemented a Game AI for enemy movement between two points. The enemy should 
 This task was challenging for me because it took time for me to figure out what is the problem and how to fix it so I contacted Fanni and she helped me to find the issues to not have the points as a child to the enemy game object.
 
 I worked on the Audio setup for our project, first of all, I ensured that the Audio listener component was added to the camera then, I installed the Audio clip for the game background and added it to the hierarchy as a game object with the audio source, I ensure that the play on wake and loop is checked so the audio will be continued during the play experience. 
+The sound effects are making such a big difference, after installing the audio assets I made changes to the player pick-up script so that When the player collides with an object tagged as "PickUp", the script plays a sound effect. The sound is played using an AudioSource component.
+for level 2 I added the pickup items with the required assets so it will be ready for the next step.
+
+I wasn't sure if our game needed a NavMesh for the enemies to navigate, so I first tried to understand how navigation systems worked, including terms like NavMesh and NavAgent.
+After choosing Navigation from AI, I adjusted the NavMesh Agent to fit the size of the enemies and set the angles correctly to match the challenging stages of our game.
+
+However, when it came to the NavMesh object, I realized that I couldn't make the NavMesh static for the foreground where the enemies walk, as it's already rendering the tilemap.
+To solve this problem, I tried to create another game object and apply NavMesh filters and rendering to it. The main goal was to align it with the foreground elements of the game.
+But I had trouble making it work as intended, so I decided to put further work on hold for now.
+
+
+
 
 <h2>Fanni</h2>
 First of all, I created a Don't Destroy On Load script that can be applied to any gameobject. With that script, we ensure that certain gameobject don't get destroyed when the scene changes. So far, I use this script on the Player and the Cameras. The reason for having the script on the Cameras as well, is that we do not want to set them with the same settings every time there is a new scene. In the future we will also add that script to the audio so that it will be compatible with the cameras too. I made the EnterNextLevel script so that it can be reused, we can just specify the name of the next scene in the Inpector. 
