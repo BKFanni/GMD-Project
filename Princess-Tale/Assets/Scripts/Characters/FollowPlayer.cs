@@ -52,11 +52,11 @@ public class FollowPlayer : MonoBehaviour
     {
         if (player.position.x > transform.position.x)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
         }
         else if (player.position.x < transform.position.x)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = new Vector3(-1.5f, 1.5f, 1.5f);
         }
     }
 
