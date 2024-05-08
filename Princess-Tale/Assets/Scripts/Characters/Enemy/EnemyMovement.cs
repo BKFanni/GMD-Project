@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -22,11 +23,22 @@ public class EnemyMovement : MonoBehaviour
     {
         while (true)
         {
-
-            while (Vector2.Distance(transform.position, currentTarget.position) > 0.1f)
+            animator.SetBool("Running",false);
+            animator.SetBool("Attack",false);
+            float diffA = Math.Abs(transform.position.x - pointA.position.x);
+            float diffB = Math.Abs(transform.position.x - pointB.position.x);
+            while (Vector2.Distance(transform.position, currentTarget.position) > 0.1f && animator.GetBool("Attack")==false)
             {
                 animator.SetBool("isMoving", true);
                 transform.position = Vector2.MoveTowards(transform.position, currentTarget.position, moveSpeed * Time.deltaTime);
+                 if(diffA < diffB) 
+                    {
+                        transform.localScale = new Vector3(-1.5f, 1.5f, 1.5f);
+                    }
+                else if(diffA > diffB) 
+                    {
+                        transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+                    }
                 yield return null;
             }
 
@@ -37,10 +49,15 @@ public class EnemyMovement : MonoBehaviour
 
             currentTarget = (currentTarget == pointA) ? pointB : pointA;
 
-
-            Vector3 newScale = transform.localScale;
-            newScale.x *= -1;
-            transform.localScale = newScale;
+ 
+            if(diffA < diffB) 
+            {
+                transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+            }
+            else if(diffA > diffB) 
+            {
+                transform.localScale = new Vector3(-1.5f, 1.5f, 1.5f);
+            }
         }
     }
 }
