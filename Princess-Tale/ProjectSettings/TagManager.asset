@@ -9,6 +9,7 @@ TagManager:
   - PickUp
   - key
   - Enemy
+  - GameOver
   layers:
   - Default
   - TransparentFX
@@ -57,4 +58,7 @@ TagManager:
     locked: 0
   - name: Fore
     uniqueID: 3278257047
+    locked: 0
+  - name: UI
+    uniqueID: 4137886977
     locked: 0
