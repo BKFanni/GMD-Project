@@ -1,0 +1,3 @@
+(Fanni)
+I added a transform gameobject with a collider that I set as a trigger, to mark the "end of the world". So that when the player falls down, he dies and the Game Over UI is displayed, along wiht a play again and quit button. I also added the "Die" animation for the player and it is triggered when the animation attribute, "isDead", is triggered. It is triggered when the Player collides with the "end of the world" gameobject, that has a tag "GameOver". For this I used the OnTriggerEnter2D function, and it also sets the Canvas active (That is the UI to display Game Over + buttons) and also pauses the game, by setting the timeScale to 0.
+##Add screenshot here
