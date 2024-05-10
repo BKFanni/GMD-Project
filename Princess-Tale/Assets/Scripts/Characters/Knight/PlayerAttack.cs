@@ -22,7 +22,10 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
         {
             Attack();
+
         }
+        animator.SetBool("Attack", Input.GetKey(KeyCode.Return));
+
     }
 
     void Attack()
@@ -44,5 +47,7 @@ public class PlayerAttack : MonoBehaviour
         }
 
         nextAttackTime = Time.time + 1f / attackRate;
+
+
     }
 }
