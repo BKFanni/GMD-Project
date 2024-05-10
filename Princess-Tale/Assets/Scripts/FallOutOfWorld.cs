@@ -10,6 +10,9 @@ public class FallOutOfWorld : MonoBehaviour
     private Rigidbody2D rb;
     public GameObject canvas;
     Animator animator;
+    public bool endOfGame;
+
+   
 
     
     // Start is called before the first frame update
@@ -19,7 +22,8 @@ public class FallOutOfWorld : MonoBehaviour
         animator = GetComponent<Animator>();
         canvas.SetActive(false);
         animator.ResetTrigger("isDead");
-
+        endOfGame = false;
+        
     }
 
     // Update is called once per frame
@@ -32,9 +36,11 @@ public class FallOutOfWorld : MonoBehaviour
     {
         if(other.tag == "GameOver")
         {
-             animator.SetTrigger("isDead");
+            animator.SetTrigger("isDead");
             canvas.SetActive(true);
+            endOfGame = true;
             Time.timeScale = 0; //pause game
+ 
         }
     }
 
