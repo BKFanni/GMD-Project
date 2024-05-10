@@ -45,7 +45,7 @@ public class MainMenu : MonoBehaviour
             {
                 Destroy(dontDestroy.gameObject);
             }
-            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+            playGame();
     }
 
 }
