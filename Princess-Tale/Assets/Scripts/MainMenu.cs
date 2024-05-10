@@ -12,6 +12,10 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(2);
     }
+    public void BackToMain()
+    {
+        SceneManager.LoadSceneAsync(0);
+    }
     public void goToSettings()
     {
         SceneManager.LoadSceneAsync(1);
