@@ -24,8 +24,9 @@ public class PlayerMovement : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        Time.timeScale = 1f;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>(); 
         jumpsLeft = maxJumps;

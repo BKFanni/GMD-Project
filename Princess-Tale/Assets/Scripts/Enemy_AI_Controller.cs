@@ -18,6 +18,8 @@ public class Enemy_AI_Controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(player != null)
+        {
         followPlayer = GetComponent<FollowPlayer>();
         enemyMovement = GetComponent<EnemyMovement>();
         enemyReturn = GetComponent<Return>();
@@ -25,12 +27,16 @@ public class Enemy_AI_Controller : MonoBehaviour
         enemyAttack = GetComponent<EnemyAttack>();
         pointA = GetComponent<Transform>();
         pointB = GetComponent<Transform>();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(player != null)
+        {
         ControlEnemy();
+        }
     }
 
     void ControlEnemy()
