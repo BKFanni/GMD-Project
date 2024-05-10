@@ -5,7 +5,7 @@ public class PlayerAttack : MonoBehaviour
     public float attackRate = 1f;
     public string enemyTag = "Enemy";
     public float attackRange = 2f;
-    public int attackDamage = 10; // Adjust the damage as needed
+    public int attackDamage = 20; // Adjust the damage as needed
 
     private Animator animator;
     private Transform playerPosition;
@@ -19,7 +19,7 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return)) // Change to desired key for attack
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             Attack();
         }
@@ -34,12 +34,12 @@ public class PlayerAttack : MonoBehaviour
             if (enemy != null && enemy.CompareTag(enemyTag))
             {
                 animator.SetBool("Attack", true);
-                // Add attack logic here
-                //  EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
-                // if (enemyHealth != null)
-                // {
-                //   enemyHealth.TakeDamage(attackDamage);
-                // }
+
+                EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
+                if (enemyHealth != null)
+                {
+                    enemyHealth.TakeDamage(attackDamage);
+                }
             }
         }
 
