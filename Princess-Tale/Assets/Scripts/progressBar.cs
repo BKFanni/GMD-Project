@@ -13,7 +13,7 @@ public class ProgressBar : MonoBehaviour
     private int currentLevel = 1;
 
     void Update()
-    {
+    {if(player != null){
         float distanceToFinish = Vector3.Distance(player.position, levelFinishPoint.position);
         float totalDistance = Vector3.Distance(transform.position, levelFinishPoint.position);
         float progressPercentage = 1f - (distanceToFinish / totalDistance);
@@ -22,6 +22,7 @@ public class ProgressBar : MonoBehaviour
 
         levelNumberTextLeft.text = currentLevel.ToString();
         levelNumberTextRight.text = (currentLevel + 1).ToString();
+    }
     }
 
     public void SetCurrentLevel(int level)

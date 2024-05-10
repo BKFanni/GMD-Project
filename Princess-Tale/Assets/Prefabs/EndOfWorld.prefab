@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1925796385696194759
+--- !u!1 &7353685789451980808
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6295545282145288671}
-  - component: {fileID: 7325667038888122929}
+  - component: {fileID: 273658848545372896}
+  - component: {fileID: 6045427290556393907}
   m_Layer: 0
   m_Name: EndOfWorld
   m_TagString: GameOver
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6295545282145288671
+--- !u!4 &273658848545372896
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1925796385696194759}
+  m_GameObject: {fileID: 7353685789451980808}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 49.3, y: -25, z: 1307.7291}
@@ -32,13 +32,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &7325667038888122929
+--- !u!70 &6045427290556393907
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1925796385696194759}
+  m_GameObject: {fileID: 7353685789451980808}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
