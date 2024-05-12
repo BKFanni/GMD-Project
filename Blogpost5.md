@@ -14,4 +14,4 @@ I had some issues with the attack animation where the attack animation continued
 <h4>control animation states</h4> I improved the animations for the player character by smoothly transitioning between movement and attack actions. When the player attacks, the attack animation is triggered seamlessly.
 
 For the female enemy character, I added a death animation that plays when her health reaches zero. This makes the game visuals more engaging and responsive to gameplay events. 
-<img src="images/attck.png"
+<img src="images/attack.png">
