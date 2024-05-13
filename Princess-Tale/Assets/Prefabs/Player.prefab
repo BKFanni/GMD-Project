@@ -18,7 +18,6 @@ GameObject:
   - component: {fileID: 4220927287884187591}
   - component: {fileID: 8610520012048038516}
   - component: {fileID: 5031055639322289382}
-  - component: {fileID: 333470682847849658}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -301,22 +300,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 046e8e895eaea1e4aa58ccbd2a7580ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupSound: {fileID: 0}
   pickUp: {fileID: 0}
---- !u!114 &333470682847849658
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 233498094301410056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 037ca652cd708364b8e13cb99539c0db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShootingItem: {fileID: 8440628725465945156, guid: 3f6906bd2767c584981159fc81202d71, type: 3}
-  ShootingPoint: {fileID: 953667679107785810}
-  canShoot: 1
 --- !u!1 &8074866147537933769
 GameObject:
   m_ObjectHideFlags: 0
