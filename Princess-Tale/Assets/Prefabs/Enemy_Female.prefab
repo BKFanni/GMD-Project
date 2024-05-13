@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 946411569340877781}
   m_Layer: 0
   m_Name: Enemy_Female
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -313,6 +313,8 @@ MonoBehaviour:
   player: {fileID: 0}
   distance: 5
   targetpos: 1
+  pointA: {fileID: 0}
+  pointB: {fileID: 0}
 --- !u!114 &50306705999520841
 MonoBehaviour:
   m_ObjectHideFlags: 0

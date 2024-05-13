@@ -4,7 +4,8 @@
 
 I implemented a Game AI for enemy movement between two points. The enemy should alternate between idle and walking movements. Upon reaching point 2, it flips to face the other direction and moves back to point 1. I achieved this using the EnemyMovement script, which defines the two points, move speed, and idle time. The script updates the animator component to change the animation state based on whether the enemy is moving or idle.
 This task was challenging for me because it took time for me to figure out what is the problem and how to fix it so I contacted Fanni and she helped me to find the issues to not have the points as a child to the enemy game object.
-
+<img src="images/point1.png">
+<img src="images/point2.png">
 I worked on the Audio setup for our project, first of all, I ensured that the Audio listener component was added to the camera then, I installed the Audio clip for the game background and added it to the hierarchy as a game object with the audio source, I ensure that the play on wake and loop is checked so the audio will be continued during the play experience. 
 The sound effects are making such a big difference, after installing the audio assets I made changes to the player pick-up script so that When the player collides with an object tagged as "PickUp", the script plays a sound effect. The sound is played using an AudioSource component.
 for level 2 I added the pickup items with the required assets so it will be ready for the next step.
@@ -16,6 +17,10 @@ However, when it came to the NavMesh object, I realized that I couldn't make the
 To solve this problem, I tried to create another game object and apply NavMesh filters and rendering to it. The main goal was to align it with the foreground elements of the game.
 But I had trouble making it work as intended, so I decided to put further work on hold for now.
 
+I've created a Progress Bar to track player progress towards the next level. This basic feature includes four parts: two circle indicators and two bar outlines with fillers. I used Unity's Canvas UI tools like Image and Text to build the Progress Bar, making sure it fills smoothly from left to right. 
+
+Additionally, I've developed a script specifically for the Progress Bar. This script takes parameters such as the player's position, the position of the level finish point, and the image for the fillBar, along with the two Text components representing the level numbers. The script calculates the distance between the player's position and the level finish point, dynamically filling out the bar to reflect progress. It also updates the text displayed on each circle based on the player's current level and the next level to reach.
+<img src="images/progress bar.png">
 
 
 
