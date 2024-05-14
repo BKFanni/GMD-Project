@@ -7,7 +7,7 @@ public class PlayerHealth : MonoBehaviour
     public float maxHealthPerLife = 100f;
     public float currentHealth;
     public int currentLives;
-    public Health healthScript;
+    private Health healthScript;
     public Animator animator;
 
     void Start()
@@ -46,7 +46,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (animator != null)
         {
-            animator.SetBool("Die", true);
+            animator.SetTrigger("isDead");
         }
     }
 
