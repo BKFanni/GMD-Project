@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class FallOutOfWorld : MonoBehaviour
 {
-    private Rigidbody2D rb;
     public GameObject canvas;
     Animator animator;
     public bool endOfGame;
@@ -18,7 +17,6 @@ public class FallOutOfWorld : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         canvas.SetActive(false);
         animator.ResetTrigger("isDead");

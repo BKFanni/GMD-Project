@@ -4,15 +4,20 @@ public class PlayerHealth : MonoBehaviour
 {
 
     public int maxLives = 3;
-    public float maxHealthPerLife = 100f;
+    public float maxHealthPerLife = 3;
     public float currentHealth;
     public int currentLives;
     private Health healthScript;
     public GameObject canvas;
-    private bool gameIsOver = false;
+ 
+
+    private Animator animator;
 
     void Start()
     {
+        animator = GetComponent<Animator>();
+        canvas.SetActive(false);
+        animator.ResetTrigger("isDead");
         healthScript = GetComponent<Health>();
         currentLives = maxLives;
         currentHealth = maxHealthPerLife;
@@ -35,7 +40,7 @@ public class PlayerHealth : MonoBehaviour
             else
             {
                 Die();
-                return;
+       
             }
         }
 
@@ -46,11 +51,12 @@ public class PlayerHealth : MonoBehaviour
     {
         if (canvas != null)
         {
+            animator.SetTrigger("isDead");
             canvas.SetActive(true);
+           Time.timeScale = 0;
         }
 
-        Time.timeScale = 0;
-        gameIsOver = true;
+
 
     }
 
@@ -62,11 +68,5 @@ public class PlayerHealth : MonoBehaviour
             healthScript.numOfHearts = currentLives;
         }
     }
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("GameOver") && !gameIsOver)
-        {
-            Die();
-        }
-    }
+
 }
