@@ -6,29 +6,47 @@ public class EnemyAttack : MonoBehaviour
 {
     public Transform player;
     private Transform playerPosition;
+    public float damagePerAttack = 25f;
+    public float attackCooldown = 1f;
+    private float nextAttackTime = 0f;
     public Animator animator;
+    private PlayerHealth playerHealth;
     // Start is called before the first frame update
     void Start()
     {
         playerPosition = player.GetComponent<Transform>();
+        playerHealth = FindObjectOfType<PlayerHealth>();
+        if (playerHealth == null)
+        {
+            Debug.LogError("PlayerHealth script not found. Make sure it's attached to the player GameObject.");
+        }
         animator = GetComponent<Animator>();
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        Attack();
+        if (Time.time >= nextAttackTime)
+        {
+            Attack();
+            nextAttackTime = Time.time + 1f / attackCooldown;
+        }
     }
 
-        void Attack()
+    void Attack()
     {
-            animator.SetBool("Running",false);
-            animator.SetBool("Attack",true);
-            FlipSprite();
+        if (playerHealth != null)
+        {
+            playerHealth.TakeDamage(damagePerAttack);
+            playerHealth.UpdateHealthUI();
+        }
+        animator.SetBool("Running", false);
+        animator.SetBool("Attack", true);
+        FlipSprite();
     }
 
-        void FlipSprite()
+    void FlipSprite()
     {
         if (player.position.x > transform.position.x)
         {
