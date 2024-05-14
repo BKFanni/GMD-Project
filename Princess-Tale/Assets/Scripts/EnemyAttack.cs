@@ -6,7 +6,7 @@ public class EnemyAttack : MonoBehaviour
 {
     public Transform player;
     private Transform playerPosition;
-    public float damagePerAttack = 25f;
+    public float damagePerAttack = 0.25f;
     public float attackCooldown = 1f;
     private float nextAttackTime = 0f;
     public Animator animator;
