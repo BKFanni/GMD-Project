@@ -19,6 +19,8 @@ For the female enemy character, I added a death animation that plays when her he
 <h4>Player Health System</h4>
 To manage the player's health, I developed a PlayerHealth script. This script not only tracks the player's health points but also manages the number of lives, we decided that the player has 3 lives and each life is equal to 100. When the player sustains damage from the enemies, the script deducts health points accordingly. If the player's health reaches zero, the script handles life deduction or triggers a game over if no lives remain. This robust system ensures smooth gameplay and adds depth to the player's experience.
 
+Additionally, to handle the game over if the player's health reaches zero, I ensured that the PlayerHealth script interacts with the Canvas object containing the game over UI. This allows for a smooth transition to the end-game state.
+
 <h4>Enemy attack</h4>
 I updated the EnemyAttack script to make enemy attacks more dynamic and challenging.
 Each enemy attack now has a defined damage amount which is equal to 0.25 for each attack.
