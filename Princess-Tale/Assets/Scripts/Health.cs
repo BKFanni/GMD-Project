@@ -6,53 +6,43 @@ using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
     public float health;
-    public int numOfHearts;
     public Image[] hearts;
     public Sprite fullHeart;
-    public Sprite emptyHeart;
-    public Sprite halfHeart;
     public Sprite _3quarterHeart;
-    public Sprite _1querterHeart;
+    public Sprite halfHeart;
+    public Sprite _1quarterHeart;
+    public Sprite emptyHeart;
 
     void Update()
     {
-        if(health > numOfHearts)
-        {
-            health = numOfHearts;
-        }
+        float remainingHealth = health;
 
         for (int i = 0; i < hearts.Length; i++)
         {
-            float heartValue = (float)health - i;
-            if (heartValue >= 1f)
+            // Calculate the health value for the current heart
+            float heartHealth = Mathf.Max(remainingHealth, 0);
+            remainingHealth -= 1;
+
+            // Set the sprite for the current heart based on its health value
+            if (heartHealth >= 1)
             {
                 hearts[i].sprite = fullHeart;
             }
-            else if (heartValue >= 0.75f)
+            else if (heartHealth >= 0.75f)
             {
                 hearts[i].sprite = _3quarterHeart;
             }
-            else if (heartValue >= 0.5f)
+            else if (heartHealth >= 0.5f)
             {
                 hearts[i].sprite = halfHeart;
             }
-            else if (heartValue >= 0.25f)
+            else if (heartHealth >= 0.25f)
             {
-                hearts[i].sprite = _1querterHeart;
+                hearts[i].sprite = _1quarterHeart;
             }
             else
             {
                 hearts[i].sprite = emptyHeart;
-            }
-
-            if(i < numOfHearts)
-            {
-                hearts[i].enabled = true;
-            
-            }
-            else
-            {
-                hearts[i].enabled = false;
             }
         }
     }
