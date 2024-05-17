@@ -4,8 +4,8 @@ public class PlayerAttack : MonoBehaviour
 {
     public float attackRate = 1f;
     public string enemyTag = "Enemy";
-    public float attackRange = 2f;
-    public int attackDamage = 20; // Adjust the damage as needed
+    public float attackRange = 1f;
+    public int attackDamage = 5; // Adjust the damage as needed
 
     private Animator animator;
     private Transform playerPosition;

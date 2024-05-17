@@ -3,9 +3,11 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public int maxHealth = 100;
-    private int currentHealth;
+    public int currentHealth;
 
     private Animator animator;
+    private bool isDead = false;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -14,15 +16,19 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(int damageAmount)
     {
-        currentHealth -= damageAmount;
-        if (currentHealth <= 0)
+        if (!isDead)
         {
-            Die();
+            currentHealth -= damageAmount;
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
         }
     }
 
     void Die()
     {
+        isDead = true;
 
         if (animator != null)
         {
