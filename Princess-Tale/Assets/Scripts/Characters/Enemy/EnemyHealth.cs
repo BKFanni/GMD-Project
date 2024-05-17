@@ -29,12 +29,12 @@ public class EnemyHealth : MonoBehaviour
     void Die()
     {
         isDead = true;
+        animator.SetBool("Die", true);
+        Invoke("DestroyEnemy", animator.GetCurrentAnimatorStateInfo(0).length);
+    }
 
-        if (animator != null)
-        {
-            animator.SetBool("Die", true);
-        }
-
-        Destroy(gameObject, 1f);
+    void DestroyEnemy()
+    {
+        Destroy(gameObject);
     }
 }
