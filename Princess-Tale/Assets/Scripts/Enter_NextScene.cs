@@ -10,12 +10,20 @@ public class Enter_NextScene : MonoBehaviour
 {
     public string sceneName;
     public string colliderTag;
+    PlayerHealth playerHealth;
+
+    void Awake()
+    {
+        playerHealth = FindObjectOfType<PlayerHealth>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.tag == colliderTag)
         {
             SceneManager.LoadSceneAsync(sceneName);
+            playerHealth.currentHealth = playerHealth.maxHealthPerLife;
+            playerHealth.currentLives = playerHealth.maxLives;
         }
     }
 }

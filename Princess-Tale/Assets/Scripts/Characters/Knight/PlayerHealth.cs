@@ -70,4 +70,5 @@ public class PlayerHealth : MonoBehaviour
             healthScript.health = currentHealth;
         }
     }
+
 }

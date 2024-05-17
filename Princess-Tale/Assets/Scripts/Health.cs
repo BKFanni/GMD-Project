@@ -13,9 +13,16 @@ public class Health : MonoBehaviour
     public Sprite _1quarterHeart;
     public Sprite emptyHeart;
 
+    PlayerHealth playerHealth;
+
+    void Awake()
+    {
+        playerHealth = FindAnyObjectByType<PlayerHealth>();
+    }
+
     void Update()
     {
-        float remainingHealth = health;
+        float remainingHealth = playerHealth.currentHealth;
 
         for (int i = 0; i < hearts.Length; i++)
         {
