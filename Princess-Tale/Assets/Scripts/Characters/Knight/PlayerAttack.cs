@@ -5,8 +5,7 @@ public class PlayerAttack : MonoBehaviour
     public float attackRate = 1f;
     public string enemyTag = "Enemy";
     public float attackRange = 1f;
-    public int attackDamage = 5; // Adjust the damage as needed
-
+    public int attackDamage = 10;
     private Animator animator;
     private Transform playerPosition;
     private float nextAttackTime = 0f;
@@ -14,30 +13,34 @@ public class PlayerAttack : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        playerPosition = transform; // Player's position
+        playerPosition = transform;
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Time.time >= nextAttackTime)
         {
-            Attack();
-
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                Attack();
+                nextAttackTime = Time.time + 1f / attackRate;
+            }
         }
         animator.SetBool("Attack", Input.GetKey(KeyCode.Return));
-
     }
 
     void Attack()
     {
+        // Play attack animation
+        animator.SetBool("Attack", true);
+
+        // Detect enemies within range
         Collider2D[] enemies = Physics2D.OverlapCircleAll(playerPosition.position, attackRange);
 
         foreach (Collider2D enemy in enemies)
         {
-            if (enemy != null && enemy.CompareTag(enemyTag))
+            if (enemy.CompareTag(enemyTag))
             {
-                animator.SetBool("Attack", true);
-
                 EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
                 if (enemyHealth != null)
                 {
@@ -45,9 +48,14 @@ public class PlayerAttack : MonoBehaviour
                 }
             }
         }
+    }
 
-        nextAttackTime = Time.time + 1f / attackRate;
+    void OnDrawGizmosSelected()
+    {
+        if (playerPosition == null)
+            playerPosition = transform;
 
-
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(playerPosition.position, attackRange);
     }
 }
