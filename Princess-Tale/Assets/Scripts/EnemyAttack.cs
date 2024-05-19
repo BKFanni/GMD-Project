@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    public Transform player;
+    private Transform player;
     private Transform playerPosition;
     public float damagePerAttack = 0.25f;
     public float attackCooldown = 1f;
     private float nextAttackTime = 0f;
     public Animator animator;
     private PlayerHealth playerHealth;
-    // Start is called before the first frame update
+    void Awake()
+    {
+        player = GameObject.FindWithTag("Player")?.transform;
+        playerPosition = player;
+    }
     void Start()
     {
         playerPosition = player.GetComponent<Transform>();

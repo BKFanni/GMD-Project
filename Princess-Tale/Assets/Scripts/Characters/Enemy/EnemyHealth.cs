@@ -30,7 +30,7 @@ public class EnemyHealth : MonoBehaviour
     {
         isDead = true;
         animator.SetBool("Die", true);
-        Invoke("DestroyEnemy", animator.GetCurrentAnimatorStateInfo(0).length);
+        Invoke("DestroyEnemy", 0.8f);
     }
 
     void DestroyEnemy()
