@@ -3,14 +3,19 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
 {
-    public Transform player;
+    private Transform player;
     private Transform playerPosition;
     [SerializeField] float targetpos;
     private Vector2 currentPos;
     public float distance;
     public float speed;
     private Animator animator;
-    // Start is called before the first frame update
+    void Awake()
+    {
+        player = GameObject.FindWithTag("Player")?.transform;
+        playerPosition = player;
+    }
+
     void Start()
     {
         playerPosition = player.GetComponent<Transform>();
@@ -29,7 +34,7 @@ public class FollowPlayer : MonoBehaviour
     {
         transform.position = Vector2.MoveTowards(transform.position, playerPosition.position, speed * Time.deltaTime);
         animator.SetBool("Running", true);
-        animator.SetBool("Attack",false);
+        animator.SetBool("Attack", false);
         FlipSprite();
     }
 
