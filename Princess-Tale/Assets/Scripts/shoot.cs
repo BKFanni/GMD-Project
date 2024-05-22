@@ -1,26 +1,50 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class shoot : MonoBehaviour
+public class Shoot : MonoBehaviour
 {
     public GameObject ShootingItem;
     public Transform ShootingPoint;
-    public bool canShoot = true;
+    public float shootingRange = 10f;
+    public float shootingCooldown = 2f;
+
+    private Transform player;
+    private bool canShoot = true;
+
+    private void Start()
+    {
+        player = GameObject.FindWithTag("Player")?.transform;
+        if (player == null)
+        {
+            Debug.LogError("Player not found. Make sure to assign the player.");
+        }
+    }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (player != null)
         {
-            Shoot();
+            float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+
+            if (distanceToPlayer <= shootingRange && canShoot)
+            {
+                Shooting();
+            }
         }
     }
-    void Shoot()
+
+    void Shooting()
     {
-        if (!canShoot)
-            return;
-        GameObject si = Instantiate(ShootingItem, ShootingPoint);
+        GameObject si = Instantiate(ShootingItem, ShootingPoint.position, ShootingPoint.rotation);
         si.transform.parent = null;
+
+        StartCoroutine(ShootingCooldown());
+    }
+
+    IEnumerator ShootingCooldown()
+    {
+        canShoot = false;
+        yield return new WaitForSeconds(shootingCooldown);
+        canShoot = true;
     }
 }
