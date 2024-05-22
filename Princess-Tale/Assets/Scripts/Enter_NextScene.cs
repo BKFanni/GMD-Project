@@ -22,7 +22,7 @@ public class Enter_NextScene : MonoBehaviour
         if (collider.gameObject.tag == colliderTag)
         {
             SceneManager.LoadSceneAsync(sceneName);
-            playerHealth.currentHealth = playerHealth.maxHealthPerLife;
+            playerHealth.currentHealth = playerHealth.maxHealth;
             playerHealth.currentLives = playerHealth.maxLives;
         }
     }
