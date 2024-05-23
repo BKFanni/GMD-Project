@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int maxLives = 3;
-    public float maxHealthPerLife = 1; // Each heart represents 1 unit of health
+    public int maxLives = 1;
+    public float maxHealth = 3; // Each heart represents 1 unit of health
     public float currentHealth;
     public int currentLives;
     private Health healthScript;
@@ -17,7 +17,7 @@ public class PlayerHealth : MonoBehaviour
         animator.ResetTrigger("isDead");
         healthScript = GetComponent<Health>();
         currentLives = maxLives;
-        currentHealth = maxHealthPerLife; // Starting health is full
+        currentHealth = maxHealth; // Starting health is full
         if (healthScript != null)
         {
             UpdateHealthUI();
@@ -32,7 +32,7 @@ public class PlayerHealth : MonoBehaviour
             currentLives--;
             if (currentLives > 0)
             {
-                currentHealth = maxHealthPerLife * currentLives;
+                currentHealth = maxHealth * currentLives;
             }
             else
             {
@@ -46,9 +46,9 @@ public class PlayerHealth : MonoBehaviour
     public void GainHealth(float healAmount)
     {
         currentHealth += healAmount;
-        if (currentHealth > maxHealthPerLife * maxLives)
+        if (currentHealth > maxHealth * maxLives)
         {
-            currentHealth = maxHealthPerLife * maxLives;
+            currentHealth = maxHealth * maxLives;
         }
         UpdateHealthUI();
     }

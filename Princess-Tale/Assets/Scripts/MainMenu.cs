@@ -1,9 +1,9 @@
 
-using System.Reflection;
-using TMPro;
+//using System.Reflection;
+//using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+//using UnityEngine.UI;
 
 
 public class MainMenu : MonoBehaviour
@@ -13,15 +13,15 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         dontDestroys = (DontDestroy[]) GameObject.FindObjectsOfType(typeof(DontDestroy));
-        ClearLog();
+        //ClearLog();
     }
-    public void ClearLog()
+    /*public void ClearLog()
     {
     var assembly = Assembly.GetAssembly(typeof(UnityEditor.Editor));
     var type = assembly.GetType("UnityEditor.LogEntries");
     var method = type.GetMethod("Clear");
     method.Invoke(new object(), null);
-    }
+    }*/
     public void playGame()
     {
         SceneManager.LoadSceneAsync(5);
@@ -45,7 +45,7 @@ public class MainMenu : MonoBehaviour
             {
                 Destroy(dontDestroy.gameObject);
             }
-            playGame();
+            SceneManager.LoadSceneAsync(2);
     }
 
 }

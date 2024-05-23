@@ -14,7 +14,6 @@ public class Health : MonoBehaviour
     public Sprite emptyHeart;
 
     PlayerHealth playerHealth;
-
     void Awake()
     {
         playerHealth = FindAnyObjectByType<PlayerHealth>();

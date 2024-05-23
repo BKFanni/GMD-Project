@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.Build.Content;
-using UnityEditor.UIElements;
+//using UnityEditor.Build.Content;
+//using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -22,7 +22,7 @@ public class Enter_NextScene : MonoBehaviour
         if (collider.gameObject.tag == colliderTag)
         {
             SceneManager.LoadSceneAsync(sceneName);
-            playerHealth.currentHealth = playerHealth.maxHealthPerLife;
+            playerHealth.currentHealth = playerHealth.maxHealth;
             playerHealth.currentLives = playerHealth.maxLives;
         }
     }
