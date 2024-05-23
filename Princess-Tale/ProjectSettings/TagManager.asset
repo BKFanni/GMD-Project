@@ -11,6 +11,7 @@ TagManager:
   - Enemy
   - GameOver
   - Tower
+  - Dragon
   layers:
   - Default
   - TransparentFX

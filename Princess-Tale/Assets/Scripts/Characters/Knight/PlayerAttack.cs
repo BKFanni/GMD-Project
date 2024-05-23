@@ -4,6 +4,7 @@ public class PlayerAttack : MonoBehaviour
 {
     public float attackRate = 1f;
     public string enemyTag = "Enemy";
+    public string dragonTag = "Dragon";
     public float attackRange = 1f;
     public int attackDamage = 10;
     private Animator animator;
@@ -47,15 +48,17 @@ public class PlayerAttack : MonoBehaviour
                     enemyHealth.TakeDamage(attackDamage);
                 }
             }
+            else if (enemy.CompareTag(dragonTag))
+            {
+                DragonHealth dragonHealth = enemy.GetComponent<DragonHealth>();
+                if (dragonHealth != null)
+                {
+                    dragonHealth.TakeDamage(attackDamage);
+                }
+            }
         }
+
     }
 
-    void OnDrawGizmosSelected()
-    {
-        if (playerPosition == null)
-            playerPosition = transform;
 
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(playerPosition.position, attackRange);
-    }
 }

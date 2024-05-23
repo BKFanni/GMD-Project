@@ -1,0 +1,54 @@
+using System.Collections;
+using UnityEngine;
+
+public class FollowPlayer : MonoBehaviour
+{
+    private Transform player;
+    private Transform playerPosition;
+    [SerializeField] float targetpos;
+    private Vector2 currentPos;
+    public float distance;
+    public float speed;
+    private Animator animator;
+    void Awake()
+    {
+        player = GameObject.FindWithTag("Player")?.transform;
+        playerPosition = player;
+    }
+
+    void Start()
+    {
+        playerPosition = player.GetComponent<Transform>();
+        currentPos = GetComponent<Transform>().position;
+        animator = GetComponent<Animator>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        FollowTarget();
+    }
+
+
+    void FollowTarget()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, playerPosition.position, speed * Time.deltaTime);
+        animator.SetBool("Running", true);
+        animator.SetBool("Attack", false);
+        FlipSprite();
+    }
+
+    void FlipSprite()
+    {
+        if (player.position.x > transform.position.x)
+        {
+            transform.localScale = new Vector3(-1.5f, 1.5f, 1.5f);
+        }
+        else if (player.position.x < transform.position.x)
+        {
+            transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+        }
+    }
+
+
+}
