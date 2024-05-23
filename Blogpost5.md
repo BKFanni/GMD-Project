@@ -14,7 +14,7 @@ I noticed that sometimes when the Player does not correctly land on the MovingPl
 
 I created a script for Enemy Health, I started by defining variables for maximum and current health. When an enemy takes damage (TakeDamage method), I reduce its current health. If the health drops to or below zero, I trigger a death animation (Die method) using an Animator component. Finally, I destroy the enemy GameObject after a short delay to allow the death animation to complete. This script allows me to handle enemy health, death animations, and removal from the game.
 
-I had some issues with the attack animation where the attack animation continued even though I didn't press the return key, the problem was that the attack function would set the animation to attack and never set it to false again, so after many tries, I figured out that I need to add one line of code to update method " animator.SetBool("Attack", Input.GetKey(KeyCode.Return));" that will set the attack animation to false if the Return key is not pressed. 
+I had some issues with the attack animation where the attack animation continued even though I didn't press the return key, the problem was that the attack function would set the animation to attack and never set it to false again, so after many tries, I figured out by introducing a simple flag to track when the player is attacking. Instead of using a complex trigger system, I directly controlled the attack animation using an animator.SetBool("Attack", true);. This ensured that the animation played whenever the player attacked. Additionally, I reset the attack flag when the animation ended, ensuring that attacks only occurred during the animation. 
 
 <h4>control animation states</h4> I improved the animations for the player character by smoothly transitioning between movement and attack actions. When the player attacks, the attack animation is triggered seamlessly.
 
@@ -22,7 +22,7 @@ For the female enemy character, I added a death animation that plays when her he
 <img src="images/attack.png">
 
 <h4>Player Health System</h4>
-To manage the player's health, I developed a PlayerHealth script. This script not only tracks the player's health points but also manages the number of lives, we decided that the player has 3 lives and each life is equal to 100. When the player sustains damage from the enemies, the script deducts health points accordingly. If the player's health reaches zero, the script handles life deduction or triggers a game over if no lives remain. This robust system ensures smooth gameplay and adds depth to the player's experience.
+To manage the player's health, I developed a PlayerHealth script. This script not only tracks the player's health points but also manages the number of lives, we decided that the player has 3 lives. When the player sustains damage from the enemies, the script deducts health points accordingly. If the player's health reaches zero, the script handles life deduction or triggers a game over if no lives remain. This robust system ensures smooth gameplay and adds depth to the player's experience.
 
 Additionally, to handle the game over if the player's health reaches zero, I ensured that the PlayerHealth script interacts with the Canvas object containing the game over UI. This allows for a smooth transition to the end-game state.
 
@@ -30,3 +30,20 @@ Additionally, to handle the game over if the player's health reaches zero, I ens
 I updated the EnemyAttack script to make enemy attacks more dynamic and challenging.
 Each enemy attack now has a defined damage amount which is equal to 0.25 for each attack.
 Furthermore, I ensured that changes in the player's health were reflected in the Health UI in real time. This allows players to stay informed about their health status during combat, enhancing their immersion in the game world.
+
+<h4> Adding Music to Main Menu Scene and Setting Scene </h4>
+In these two scenes, I've set up music to match the vibe of the game. I've picked town-themed music because it suits the atmosphere well. I've made sure to add this music to both scenes and set up the audio settings properly. This ensures that the music doesn't suddenly stop and doesn't play on repeat, keeping the game's mood consistent and immersive.
+
+<h4>include Enemies and progress bar to level 2</h4>
+Adding enemies and a progress bar to level 2 has now become a straightforward task. These assets are conveniently located in the prefab folder However, I've updated how we add the player object. Now, instead of referencing it directly, I find the player object within the code itself. This change offers more flexibility and control over the game's behavior. the process involves simply integrating them into the scene. This efficient workflow enhances productivity and allows for seamless incorporation of key elements into the game environment.
+
+<h4> Dragon's Fireball Attack and Health Status </h4>
+First, I made a fireball game object by adding Rigidbody2D and BoxCollider2D components. Then, I used an image I created in Inkscape as its sprite added a fireball script, and added this game object to the prefabs folder. In creating the Fireball script, I wanted to make a projectile that hits and damages the player. I started by setting up basic attributes like speed and damage. Then, I found the player's position and determined the direction towards them. The fireball moved toward the player based on this direction and its speed. When it collided with the player, it caused damage. After that, the fireball disappeared. 
+
+For dragon's fireball attack script. I defined the fireball's GameObject and where firePosition. I also established parameters like firing range and cooldown time to control how often the dragon could attack.
+
+To enable the fireball attack, I located the player GameObject in the Start method, as it's the dragon's target. Then, in the Update method, I verified if the player was within range and if the dragon could attack. If conditions were met, I initiated the fireball launch and cooldown process.
+Additionally, I created a helper method, IsPlayerInRange, to check if the player was within the dragon's attack range. This setup allowed the dragon to unleash fireballs dynamically in the Unity game.
+
+I created a Dragon Health script, At the start of the game, the dragon's health (currentHealth) is set to its maximum (maxHealth). When the dragon takes damage, the TakeDamage method deducts the damage amount from its current health. If the health reaches zero or less, indicating the dragon's defeat, the Die method is called. This sets a flag indicating the dragon is dead and removes the GameObject from the scene after a short delay. 
+Finally, I made changes to the Player attack script to attack the dragon as well by checking the "Dragon" tag and then using DragonHealth.Take Damage to reduce the dragon's health in each attack.
