@@ -7,14 +7,17 @@ public class PlayerAttack : MonoBehaviour
     public string dragonTag = "Dragon";
     public float attackRange = 1f;
     public int attackDamage = 10;
+    public AudioSource audioSource;
     private Animator animator;
     private Transform playerPosition;
+    private bool isAttacking = false;
     private float nextAttackTime = 0f;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         playerPosition = transform;
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -23,19 +26,32 @@ public class PlayerAttack : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Return))
             {
+                isAttacking = true;
+                animator.SetBool("Attack", true);
                 Attack();
                 nextAttackTime = Time.time + 1f / attackRate;
             }
+            else
+            {
+                isAttacking = false;
+                animator.SetBool("Attack", false);
+            }
         }
-        animator.SetBool("Attack", Input.GetKey(KeyCode.Return));
+    }
+
+    // Animation event
+    public void OnAttackEnd()
+    {
+        isAttacking = false;
     }
 
     void Attack()
     {
-        // Play attack animation
-        animator.SetBool("Attack", true);
+        if (audioSource != null)
+        {
+            audioSource.Play();
+        }
 
-        // Detect enemies within range
         Collider2D[] enemies = Physics2D.OverlapCircleAll(playerPosition.position, attackRange);
 
         foreach (Collider2D enemy in enemies)
@@ -57,7 +73,6 @@ public class PlayerAttack : MonoBehaviour
                 }
             }
         }
-
     }
 
 
