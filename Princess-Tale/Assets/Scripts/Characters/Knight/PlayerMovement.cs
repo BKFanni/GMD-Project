@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     float horizontalInput;
+
     float moveSpeed = 5f;
     bool isFacingRight = false;
     float jumpPower = 5f;
@@ -22,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
 
     private TextMeshPro username;
 
+    MainMenu mainMenu;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -31,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>(); 
         jumpsLeft = maxJumps;
         originalParent = transform.parent;
+        mainMenu = FindAnyObjectByType<MainMenu>();
         
     }
 
@@ -55,6 +59,11 @@ public class PlayerMovement : MonoBehaviour
             isGrounded=false;
             animator.SetBool("isJumping", !isGrounded);
             
+        }
+
+        if(Input.GetButtonDown("Pause"))
+        {
+            mainMenu.Pause();
         }
 
       
