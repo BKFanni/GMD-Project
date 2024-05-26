@@ -35,7 +35,7 @@ Furthermore, I ensured that changes in the player's health were reflected in the
 In these two scenes, I've set up music to match the vibe of the game. I've picked town-themed music because it suits the atmosphere well. I've made sure to add this music to both scenes and set up the audio settings properly. This ensures that the music doesn't suddenly stop and doesn't play on repeat, keeping the game's mood consistent and immersive.
 
 <h4>include Enemies and progress bar to level 2</h4>
-Adding enemies and a progress bar to level 2 has now become a straightforward task. These assets are conveniently located in the prefab folder However, I've updated how we add the player object. Now, instead of referencing it directly, I find the player object within the code itself. This change offers more flexibility and control over the game's behavior. the process involves simply integrating them into the scene. This efficient workflow enhances productivity and allows for seamless incorporation of key elements into the game environment.
+Adding enemies and a progress bar to level 2 has now become a straightforward task. These assets are conveniently located in the prefab folder However, I've updated how we add the player object. Now, instead of referencing it directly, I find the player object within the code itself. This change offers more flexibility and control over the game's behavior.
 
 <h4> Dragon's Fireball Attack and Health Status </h4>
 First, I made a fireball game object by adding Rigidbody2D and BoxCollider2D components. Then, I used an image I created in Inkscape as its sprite added a fireball script, and added this game object to the prefabs folder. In creating the Fireball script, I wanted to make a projectile that hits and damages the player. I started by setting up basic attributes like speed and damage. Then, I found the player's position and determined the direction towards them. The fireball moved toward the player based on this direction and its speed. When it collided with the player, it caused damage. After that, the fireball disappeared. 
@@ -44,6 +44,12 @@ For dragon's fireball attack script. I defined the fireball's GameObject and whe
 
 To enable the fireball attack, I located the player GameObject in the Start method, as it's the dragon's target. Then, in the Update method, I verified if the player was within range and if the dragon could attack. If conditions were met, I initiated the fireball launch and cooldown process.
 Additionally, I created a helper method, IsPlayerInRange, to check if the player was within the dragon's attack range. This setup allowed the dragon to unleash fireballs dynamically in the Unity game.
+<img src="images/Dragon fireball.png">
 
 I created a Dragon Health script, At the start of the game, the dragon's health (currentHealth) is set to its maximum (maxHealth). When the dragon takes damage, the TakeDamage method deducts the damage amount from its current health. If the health reaches zero or less, indicating the dragon's defeat, the Die method is called. This sets a flag indicating the dragon is dead and removes the GameObject from the scene after a short delay. 
 Finally, I made changes to the Player attack script to attack the dragon as well by checking the "Dragon" tag and then using DragonHealth.Take Damage to reduce the dragon's health in each attack.
+
+<h4>Audio</h4>
+<h5> Attack sound</h5> I added an attack sound to the player's attack script. This audio clip will play whenever the attack function is called. I also made the Audio Source a parameter, allowing me to drag and drop the audio clip into it.
+<h5>Background Music to To the story scene </h5> Before playing the game, we have an intro scene that introduces the story. To enhance this, I added background music to play while the slides are shown. I created an empty object in the hierarchy and added an Audio Source as a child, which includes the audio clip for the intro music.
+<h5>Win Music </h5> When the player saves the princess from the dragon, the winning scene is displayed. I added victory music to this scene to enhance the celebratory atmosphere
