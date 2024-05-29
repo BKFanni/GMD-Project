@@ -24,7 +24,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (Time.time >= nextAttackTime)
         {
-            if (Input.GetKeyDown(KeyCode.Return))
+            if (Input.GetButtonDown("Fire1"))
             {
                 isAttacking = true;
                 animator.SetBool("Attack", true);
