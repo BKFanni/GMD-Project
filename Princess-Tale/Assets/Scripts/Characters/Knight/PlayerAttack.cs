@@ -10,7 +10,6 @@ public class PlayerAttack : MonoBehaviour
     public AudioSource audioSource;
     private Animator animator;
     private Transform playerPosition;
-    private bool isAttacking = false;
     private float nextAttackTime = 0f;
 
     void Start()
@@ -26,24 +25,19 @@ public class PlayerAttack : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Return))
             {
-                isAttacking = true;
                 animator.SetBool("Attack", true);
                 Attack();
                 nextAttackTime = Time.time + 1f / attackRate;
             }
             else
             {
-                isAttacking = false;
+           
                 animator.SetBool("Attack", false);
             }
         }
     }
 
-    // Animation event
-    public void OnAttackEnd()
-    {
-        isAttacking = false;
-    }
+   
 
     void Attack()
     {

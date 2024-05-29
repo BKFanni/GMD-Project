@@ -41,5 +41,8 @@ public class FallDamage : MonoBehaviour
             isFalling = false;
             lastYPosition = currentYPosition; // Reset lastYPosition after landing
         }
+        else{
+            isFalling = false;
+        }
     }
 }

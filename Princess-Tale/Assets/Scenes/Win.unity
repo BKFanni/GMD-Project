@@ -322,11 +322,27 @@ PrefabInstance:
       objectReference: {fileID: 2055989318}
     - target: {fileID: 3385633424910773629, guid: c2b61e58c4cc5cd40a39fb7522d2a431, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: playGame
+      value: ReloadSceneMainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 4308128382996919223, guid: c2b61e58c4cc5cd40a39fb7522d2a431, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 5070172178186496041, guid: c2b61e58c4cc5cd40a39fb7522d2a431, type: 3}
       propertyPath: m_Name
-      value: Gamestart
+      value: BackToMain
+      objectReference: {fileID: 0}
+    - target: {fileID: 5491194904023720977, guid: c2b61e58c4cc5cd40a39fb7522d2a431, type: 3}
+      propertyPath: m_text
+      value: Main Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 5491194904023720977, guid: c2b61e58c4cc5cd40a39fb7522d2a431, type: 3}
+      propertyPath: m_margin.x
+      value: -16.984772
+      objectReference: {fileID: 0}
+    - target: {fileID: 5491194904023720977, guid: c2b61e58c4cc5cd40a39fb7522d2a431, type: 3}
+      propertyPath: m_margin.z
+      value: -35.992615
       objectReference: {fileID: 0}
     - target: {fileID: 6852895066595617066, guid: c2b61e58c4cc5cd40a39fb7522d2a431, type: 3}
       propertyPath: m_Pivot.x
@@ -354,7 +370,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6852895066595617066, guid: c2b61e58c4cc5cd40a39fb7522d2a431, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 186.2
+      value: 270
       objectReference: {fileID: 0}
     - target: {fileID: 6852895066595617066, guid: c2b61e58c4cc5cd40a39fb7522d2a431, type: 3}
       propertyPath: m_SizeDelta.y
@@ -1062,6 +1078,10 @@ PrefabInstance:
     - target: {fileID: 1085937244906024046, guid: 3bb540fae7ab2ca4f8944322a7f5ff0c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: quitApp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5095534039466196025, guid: 3bb540fae7ab2ca4f8944322a7f5ff0c, type: 3}
+      propertyPath: m_text
+      value: Quit
       objectReference: {fileID: 0}
     - target: {fileID: 6672559627685757880, guid: 3bb540fae7ab2ca4f8944322a7f5ff0c, type: 3}
       propertyPath: m_Pivot.x
