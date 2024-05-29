@@ -12,11 +12,12 @@ TagManager:
   - GameOver
   - Tower
   - Dragon
+  - Ground
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     private Transform player;
-    private Transform playerPosition;
+  
     public float damagePerAttack = 0.25f;
     public float attackCooldown = 1f;
     private float nextAttackTime = 0f;
@@ -14,11 +14,11 @@ public class EnemyAttack : MonoBehaviour
     void Awake()
     {
         player = GameObject.FindWithTag("Player")?.transform;
-        playerPosition = player;
+      
     }
     void Start()
     {
-        playerPosition = player.GetComponent<Transform>();
+      
         playerHealth = FindObjectOfType<PlayerHealth>();
         if (playerHealth == null)
         {

@@ -574,7 +574,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 1c299127d677b66449fcd53b20549ddc, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -674,7 +674,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 100
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 6927815828982914719}
 --- !u!1 &7518062111201442799
 GameObject:
   m_ObjectHideFlags: 0

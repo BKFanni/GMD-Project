@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class FallDamage : MonoBehaviour
 {
-    public float fallThreshold = 7f; 
+    public float fallThreshold = 5f; 
     public float damageMultiplier = 0.1f; 
     private PlayerHealth playerHealth;
     private Rigidbody2D rb;
@@ -40,6 +40,9 @@ public class FallDamage : MonoBehaviour
             }
             isFalling = false;
             lastYPosition = currentYPosition; // Reset lastYPosition after landing
+        }
+        else{
+            isFalling = false;
         }
     }
 }

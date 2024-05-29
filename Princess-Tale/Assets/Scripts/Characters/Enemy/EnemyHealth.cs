@@ -1,5 +1,6 @@
 using System.Net.Cache;
 using UnityEngine;
+using System.Collections;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class EnemyHealth : MonoBehaviour
     {
         healthBar = GetComponentInChildren<FloatingHealthBar>();
     }
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -26,7 +28,7 @@ public class EnemyHealth : MonoBehaviour
         if (!isDead)
         {
             currentHealth -= damageAmount;
-            healthBar.UpdateHealthBar(currentHealth,maxHealth);
+            healthBar.UpdateHealthBar(currentHealth, maxHealth);
             if (currentHealth <= 0)
             {
                 Die();
@@ -38,11 +40,27 @@ public class EnemyHealth : MonoBehaviour
     {
         isDead = true;
         animator.SetBool("Die", true);
-        Invoke("DestroyEnemy", 0.8f);
+        StartCoroutine(CheckDeathAnimationComplete());
     }
 
-    void DestroyEnemy()
+    IEnumerator CheckDeathAnimationComplete()
     {
+        while (!animator.GetCurrentAnimatorStateInfo(0).IsName("Die"))
+        {
+            Debug.Log("Waiting for Die animation to start...");
+            yield return null;
+        }
+
+        Debug.Log("Die animation started.");
+        
+        while (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
+        {
+            Debug.Log("Die animation playing...");
+            yield return null;
+        }
+
+        Debug.Log("Die animation completed.");
+
         Destroy(gameObject);
     }
 }
