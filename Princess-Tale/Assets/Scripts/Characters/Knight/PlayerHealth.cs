@@ -3,14 +3,14 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     public int maxLives = 1;
-    public float maxHealth = 3; // Each heart represents 1 unit of health
+    public float maxHealth = 3f; // Each heart represents 1 unit of health
     public float currentHealth;
     public int currentLives;
     private Health healthScript;
     public GameObject canvas;
     private Animator animator;
 
-    void Start()
+    void Awake()
     {
         animator = GetComponent<Animator>();
         canvas.SetActive(false);
