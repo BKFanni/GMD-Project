@@ -23,7 +23,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (Time.time >= nextAttackTime)
         {
-            if (Input.GetKeyDown(KeyCode.Return))
+            if (Input.GetButtonDown("Fire1"))
             {
                 animator.SetBool("Attack", true);
                 Attack();
