@@ -1,3 +1,4 @@
+using System.Net.Cache;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
@@ -8,6 +9,12 @@ public class EnemyHealth : MonoBehaviour
     private Animator animator;
     private bool isDead = false;
 
+    [SerializeField] FloatingHealthBar healthBar;
+
+    void Awake()
+    {
+        healthBar = GetComponentInChildren<FloatingHealthBar>();
+    }
     void Start()
     {
         currentHealth = maxHealth;
@@ -19,6 +26,7 @@ public class EnemyHealth : MonoBehaviour
         if (!isDead)
         {
             currentHealth -= damageAmount;
+            healthBar.UpdateHealthBar(currentHealth,maxHealth);
             if (currentHealth <= 0)
             {
                 Die();

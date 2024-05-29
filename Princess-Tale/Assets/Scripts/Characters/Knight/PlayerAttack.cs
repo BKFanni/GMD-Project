@@ -6,7 +6,7 @@ public class PlayerAttack : MonoBehaviour
     public string enemyTag = "Enemy";
     public string dragonTag = "Dragon";
     public float attackRange = 1f;
-    public int attackDamage = 10;
+    public int attackDamage = 15;
     public AudioSource audioSource;
     private Animator animator;
     private Transform playerPosition;
