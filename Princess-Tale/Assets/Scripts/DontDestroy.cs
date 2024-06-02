@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DontDestroy : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class DontDestroy : MonoBehaviour
 
     private void Awake()
     {
+        
         if (instance == null)
         {
             instance = gameObject;
@@ -28,6 +30,8 @@ public class DontDestroy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(SceneManager.GetActiveScene().name == "Win" || SceneManager.GetActiveScene().name == "mainMenu"){
+            Destroy(gameObject);
+        }
     }
 }

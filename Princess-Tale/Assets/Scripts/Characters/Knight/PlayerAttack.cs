@@ -60,7 +60,7 @@ public class PlayerAttack : MonoBehaviour
             }
             else if (enemy.CompareTag(dragonTag))
             {
-                DragonHealth dragonHealth = enemy.GetComponent<DragonHealth>();
+                EnemyHealth dragonHealth = enemy.GetComponent<EnemyHealth>();
                 if (dragonHealth != null)
                 {
                     dragonHealth.TakeDamage(attackDamage);
