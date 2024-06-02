@@ -17,15 +17,8 @@ public class MainMenu : MonoBehaviour
     {
         dontDestroys = (DontDestroy[]) GameObject.FindObjectsOfType(typeof(DontDestroy));
         isPaused = false;
-        //ClearLog();
     }
-    /*public void ClearLog()
-    {
-    var assembly = Assembly.GetAssembly(typeof(UnityEditor.Editor));
-    var type = assembly.GetType("UnityEditor.LogEntries");
-    var method = type.GetMethod("Clear");
-    method.Invoke(new object(), null);
-    }*/
+
     public void playGame()
     {
         SceneManager.LoadSceneAsync(5);
@@ -37,10 +30,6 @@ public class MainMenu : MonoBehaviour
 
     public void ReloadSceneMainMenu()
     {
-            foreach (DontDestroy dontDestroy in dontDestroys)
-            {
-                Destroy(dontDestroy.gameObject);
-            }
             SceneManager.LoadSceneAsync(0);
             Time.timeScale = 1f;
             isPaused = false;

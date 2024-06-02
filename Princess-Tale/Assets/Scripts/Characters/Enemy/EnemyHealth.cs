@@ -29,18 +29,27 @@ public class EnemyHealth : MonoBehaviour
         {
             currentHealth -= damageAmount;
             healthBar.UpdateHealthBar(currentHealth, maxHealth);
-            if (currentHealth <= 0)
-            {
-                Die();
+            if (currentHealth <= 0){
+                if(transform.CompareTag("Dragon"))
+                {
+                    Destroy(gameObject);
+                    
+                }
+                else
+                {
+                    Die();
+                }
             }
         }
     }
 
     void Die()
     {
+        
         isDead = true;
         animator.SetBool("Die", true);
         StartCoroutine(CheckDeathAnimationComplete());
+        
     }
 
     IEnumerator CheckDeathAnimationComplete()
