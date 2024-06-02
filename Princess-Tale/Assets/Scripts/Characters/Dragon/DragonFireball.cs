@@ -7,9 +7,11 @@ public class DragonFireball : MonoBehaviour
     public Transform firePosition;
     public float firingRange = 10f;
     public float firingCooldown = 2f;
+    public AudioClip fireSound;
 
     private Transform player;
     private bool canFire = true;
+    private AudioSource audioSource;
 
     private void Start()
     {
@@ -17,6 +19,12 @@ public class DragonFireball : MonoBehaviour
         if (player == null)
         {
             Debug.LogError("Player not found. Make sure the player has the 'Player' tag.");
+        }
+
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            Debug.LogError("AudioSource component not found. Please add an AudioSource component to the dragon.");
         }
     }
 
@@ -38,6 +46,11 @@ public class DragonFireball : MonoBehaviour
     {
         GameObject fireballInstance = Instantiate(fireball, firePosition.position, firePosition.rotation);
         fireballInstance.transform.parent = null;
+
+        if (audioSource != null && fireSound != null)
+        {
+            audioSource.PlayOneShot(fireSound);
+        }
 
         StartCoroutine(FireCooldown());
     }
