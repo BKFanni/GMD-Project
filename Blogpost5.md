@@ -1,30 +1,39 @@
 <h2>Fanni</h2>
+<h4>Player reaches the end of the game world</h4>
 I added a transform gameobject with a collider that I set as a trigger, to mark the "end of the world". So that when the player falls down, he dies and the Game Over UI is displayed, along wiht a play again and quit button. I also added the "Die" animation for the player and it is triggered when the animation attribute, "isDead", is triggered. It is triggered when the Player collides with the "end of the world" gameobject, that has a tag "GameOver". For this I used the OnTriggerEnter2D function, and it also sets the Canvas active (That is the UI to display Game Over + buttons) and also pauses the game, by setting the timeScale to 0. 
 I had to modify the DontDestroyOnLoad script, so that it will not create duplicate gameobjects when the same scene is reloaded, for e.g. when pressing the Play again button. Additionally, the Play again button now calls a Reload scene function on click, so that it reloads the current scene. It was a bit of a struggle to figure out how to fix the issue with the objects using DontDestroyOnLoad component, but finally it works and it still keeps the objects when a new scene is loaded. 
 ##Add screenshot here
 
+<h4>Player health</h4>
 Then I imported 2 assets: one representing a  heart and the other one representing a health potion. Then I added 3 heart sprites to the canvas to show the Player's health. I also edited the full heart image and created 4 other images so that I can make an animation; 3/4 heart, half heart, 1/4 heart and empty heart. Then I wrote a script that controls which state of the heart is shown based on the Player's health value. 
 
 In the meantime, I helped Marwa fix an issue regarding displaying GameOver when the Player dies when he gets killed by an enemy. Then I had to adjust the value of the damage taken by the Player when he gets hit and displaying the corresponding state of his health. I had to play around a bit with both the Health script (used to show the state of the hearts) and the PlayerHealth script as well to get it right. Then I added a health potion pickup script that increases the health of the Player when he picks up a health potion.
 
 I noticed that sometimes when the Player does not correctly land on the MovingPlatform object then a warning is displayed in the console: only root objects can use DontDestroyOnLoad function. Therefore, I had to modify the ResetParent function within the PlayerMovement script so that it uses the root transform. It successfully fixed the issue. I also noticed that when the Player goes 'underground' then the health bar and level bar are not correctly displayed, the platform grid was overlapping it. So I modified the layer order of the CanvasFore object, I set the order to 1 instead of 0 so it is brought above the grid but still displayed under the GameOver screen, which is exactly what I wanted to achieve.
 
+<h4>Winner scene</h4>
 I created a "winner" scene that is shown when the Player reaches the castle tower. On that scene, there is a text to inform the user that he won the game and reached the goal, and 2 buttons: quit or go to main menu. 
 
 I modified the Player Health script so that when the Player enters a new scene he has full health.
 
+<h4>Game intro</h4>
 After that, I created a timeline in order to make an introduction 'video' with some basic animation, such as fade (for that I created an empty game object with a black image and recorder it while changing the transparency of the image). The 'intro' is like a short presentation that we use to introduce the Player to the objectives of the game and the story of the Princess. This introduction is played after the Player presses the Play button in the main menu.
 
+<h4>Bug fixing</h4>
 During development, I noticed some minor bugs / mistakes that I corrected, for example changing the 'game over scene' to be full screen, adding rigidbody 2D to the moving platform, some issues with animation, plus some small things that had to be changed because we could not build the game successfully otherwise (we realized this during testing).
 
+<h4>Pause game functionality</h4>
 Then I created a pause button in the top right corner of the screen, that is when it is pressed, it sets the Time.scale to 0 to stop everything, and it enables the pause screen UI element, that is a canvas with the text 'Paused' and 2 buttons: continue or go to main menu. So I created a logic when the continue button is pressed then the Time.scale is set back to 1 so it just resumes the game. I also had to adjust the Player animation for example, I had to disable the Player animator when the game is paused because otherwise he would continue the 'idle' animation. Then I made a logic that enables the user to pause the game not only by clicking on the button, but by pressing Escape on the keyboard.
 
+<h4>Player falls from too high</h4>
 I also made a script for decreasing the Player's health if he falls down from a high point. It was quite tricky to make it properly functional, because during my first attempts there was an issue that even though it seemed like the code is working as intended, when the player did not actually fall down but just go underground using the 'stairs' peacefully, his health decreased. So after some trial and errors, I managed to make this feature function properly.
 
+<h4>Enemy health display</h4>
 Then I created a health bar for the enemies in the game, using a slider and linking it with the enemies health, and based on their health value the colour of the slider changes (it goes from green to red through yellow and orange).
 
 As there were some issues with  when the enemy was about to die, because it just disappered when he had low health, and not showing the enemy die animation, so I fixed that problem. Basically, the main problem was that the animations called in the script were named differently than the animations in the animator of the enemy and there were also some other minor mistakes that I corrected.
 
+<h4>UI navigation using keyboard</h4>
 Then we tested the game for the second time on the arcade machine and we decided that we need to make sure that the user can navigate the UI elements, such as buttons in the main menu by using the joystick or actual buttons, not only by clicking with a mouse. So for that I made scripts for each scene with different UI elements, that enables navigation with keyboard/joystick. This was also tricky, especially when it comes to the pause menu, and I still have not managed to make that perfectly functional yet.
 
 
