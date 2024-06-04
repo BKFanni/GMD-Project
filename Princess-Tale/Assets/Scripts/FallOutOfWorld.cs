@@ -11,6 +11,8 @@ public class FallOutOfWorld : MonoBehaviour
     Animator animator;
     public bool endOfGame;
 
+    PlayerHealth playerHealth;
+
    
 
     
@@ -21,6 +23,7 @@ public class FallOutOfWorld : MonoBehaviour
         canvas.SetActive(false);
         animator.ResetTrigger("isDead");
         endOfGame = false;
+        playerHealth = FindAnyObjectByType<PlayerHealth>();
         
     }
 
@@ -35,6 +38,7 @@ public class FallOutOfWorld : MonoBehaviour
         if(other.tag == "GameOver")
         {
             animator.SetTrigger("isDead");
+            playerHealth.currentHealth = 0;
             canvas.SetActive(true);
             endOfGame = true;
             Time.timeScale = 0; //pause game

@@ -9,7 +9,8 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
      DontDestroy[] dontDestroys;
-     public GameObject canvas;
+     public GameObject pauseCanvas;
+     public GameObject gameOverCanvas;
      public bool isPaused;
 
     // Start is called before the first frame update
@@ -33,6 +34,10 @@ public class MainMenu : MonoBehaviour
             SceneManager.LoadSceneAsync(0);
             Time.timeScale = 1f;
             isPaused = false;
+            if(gameOverCanvas != null)
+            {
+               gameOverCanvas.SetActive(false);
+            }
     }
     public void goToSettings()
     {
@@ -55,14 +60,14 @@ public class MainMenu : MonoBehaviour
     public void Pause()
     {
         Time.timeScale = 0;
-        canvas.SetActive(true);
+        pauseCanvas.SetActive(true);
         isPaused = true;
     }
 
     public void ContinueCurrentGame()
     {
         Time.timeScale = 1f;
-        canvas.SetActive(false);
+        pauseCanvas.SetActive(false);
         isPaused = false;
         
     }

@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-//NOT WORKING PROPERLY
 public class PauseMenuNavigation : MonoBehaviour
 {
     public Button quitButton;
@@ -23,19 +22,17 @@ public class PauseMenuNavigation : MonoBehaviour
 
     void Start()
     {
-       buttons = new Button[] { otherButton, quitButton };
+        buttons = new Button[] { otherButton, quitButton };
 
         if (buttons.Length > 0)
         {
-            HighlightButton(buttons[currentButtonIndex]);
             SetButtonNavigation();
         }
     }
 
     void Update()
     {
-        // Check if the pause menu is active
-        if (!isMenuActive)
+        if (isMenuActive)
         {
             // Check for horizontal input and cooldown period
             if (Time.unscaledTime - lastInputTime > inputCooldown)
@@ -53,9 +50,8 @@ public class PauseMenuNavigation : MonoBehaviour
                     lastInputTime = Time.unscaledTime; // Update last input time
                 }
             }
-        }
-        else // Process button clicks only when the pause menu is active
-        {
+
+            // Process button clicks only when the pause menu is active
             if (Input.GetButtonDown("Submit"))
             {
                 buttons[currentButtonIndex].onClick.Invoke(); // Simulate button click
@@ -73,6 +69,9 @@ public class PauseMenuNavigation : MonoBehaviour
 
         // Highlight the new button
         HighlightButton(buttons[currentButtonIndex]);
+
+        // Set the new selected button in the Event System
+        EventSystem.current.SetSelectedGameObject(buttons[currentButtonIndex].gameObject);
     }
 
     void HighlightButton(Button button, bool highlight = true)
@@ -80,6 +79,8 @@ public class PauseMenuNavigation : MonoBehaviour
         // Change color to highlight or normal
         ColorBlock colors = button.colors;
         colors.normalColor = highlight ? Color.yellow : Color.white;
+        colors.selectedColor = highlight ? Color.yellow : Color.white;
+        colors.highlightedColor = highlight ? Color.yellow : Color.white;
         button.colors = colors;
     }
 
@@ -91,7 +92,7 @@ public class PauseMenuNavigation : MonoBehaviour
         // Enable or disable interactability of buttons based on menu's active state
         foreach (var button in buttons)
         {
-            button.interactable = !active;
+            button.interactable = active;
         }
 
         // Reset button navigation to the first button when menu becomes active
@@ -99,6 +100,7 @@ public class PauseMenuNavigation : MonoBehaviour
         {
             currentButtonIndex = 0;
             HighlightButton(buttons[currentButtonIndex]);
+            EventSystem.current.SetSelectedGameObject(buttons[currentButtonIndex].gameObject);
         }
     }
 
