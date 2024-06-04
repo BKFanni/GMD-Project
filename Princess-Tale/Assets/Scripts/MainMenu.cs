@@ -34,7 +34,10 @@ public class MainMenu : MonoBehaviour
             SceneManager.LoadSceneAsync(0);
             Time.timeScale = 1f;
             isPaused = false;
-            gameOverCanvas.SetActive(false);
+            if(gameOverCanvas != null)
+            {
+               gameOverCanvas.SetActive(false);
+            }
     }
     public void goToSettings()
     {
