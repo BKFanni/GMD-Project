@@ -1,5 +1,6 @@
 <h1>Blog post 6</h1>
 <h2>"The Princess Tale" 2D Adventure</h2>
+The game can be played <a href="https://bkfanni.github.io/GMD-Project/">here</a>.
 Welcome to "The Princess Tale," where you become a brave knight on a mission to save a princess from a dragon's tower. As you explore rivers,
 forests, and villages, you'll feel the joy of achieving goals and the thrill of discovering new challenges.
 
