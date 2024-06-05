@@ -16,3 +16,5 @@ https://github.com/BKFanni/GMD-Project/blob/main/Blogpost5.md
 
 <h2>Blog post #6</h2>
 https://github.com/BKFanni/GMD-Project/blob/main/BlogPost6.md
+
+<h2>Try out the game here The game can be played <a href="https://bkfanni.github.io/GMD-Project/">here</a></h2>
