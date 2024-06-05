@@ -13,3 +13,6 @@ https://github.com/BKFanni/GMD-Project/blob/main/BlogPost4.md
 
 <h2>Blog post #5</h2>
 https://github.com/BKFanni/GMD-Project/blob/main/Blogpost5.md
+
+<h2>Blog post #6</h2>
+https://github.com/BKFanni/GMD-Project/blob/main/BlogPost6.md
