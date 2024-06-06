@@ -26,6 +26,8 @@ https://youtu.be/gfLooFYvOhY?feature=shared
 <ul>
   <li><a href="https://assetstore.unity.com/packages/2d/characters/sunny-land-103349">Game world</a></li>
   <li><a href="https://assetstore.unity.com/packages/2d/characters/fantasy-medieval-character-pack-81647">Characters</a></li>
-  <li><a href="https://assetstore.unity.com/packages/2d/gui/icons/pixel-art-icon-pack-rpg-158343">Pick up items</a></li>
+  <li><a href="https://assetstore.unity.com/packages/2d/gui/icons/rpg-icons-free-starter-pack-245521">Pick up items</a></li>
+  <li><a href="https://assetstore.unity.com/packages/2d/gui/icons/pixel-art-icon-pack-rpg-158343">Heart</a></li>
   <li><a href="https://assetstore.unity.com/packages/2d/gui/icons/fantasy-free-gui-147682">GUI</a></li>
+  <li><a href="https://assetstore.unity.com/packages/audio/music/casual-kingdom-world-sounds-free-136406">Audio</a></li>
 </ul>
