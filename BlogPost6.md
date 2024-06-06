@@ -20,6 +20,11 @@ We designed levels and coded gameplay mechanics with care, ensuring every detail
 <h4>Story Introduction:</h4> Get immersed in the adventure with an engaging story intro scene.
 <h4>Menu Options:</h4> Navigate easily with main menu and setting menu options.
 <h4>Victory Celebration:</h4>  Enjoy a special scene when you save the princess and finish the game.
+
+<h3>Improvements and Future Work</h3>
+we see several areas for improvement and future expansion. Improving the graphics and animations would enhance the game's look and feel. This includes refining character sprites, background designs, and special effects. Adding more levels, enemies, and interactive elements would make the game more engaging. A more complex storyline and character development could provide a richer gaming experience. 
+
+
 <h3>Our Journey:</h3> Despite challenges, our team worked together to create a game we're proud to share with you.
 and we hope you enjoy playing it as much as we enjoyed creating it.
 
