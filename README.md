@@ -17,6 +17,9 @@ https://github.com/BKFanni/GMD-Project/blob/main/Blogpost5.md
 <h2>Blog post #6</h2>
 https://github.com/BKFanni/GMD-Project/blob/main/BlogPost6.md
 
+<h2>Link to Youtube demo video of Princess Tale game</h2>
+https://youtu.be/gfLooFYvOhY?feature=shared
+
 <h2>Try out the game here The game can be played <a href="https://bkfanni.github.io/GMD-Project/">here</a></h2>
 
 <h2>Assets used for development:</h2>
