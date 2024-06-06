@@ -21,3 +21,11 @@ https://github.com/BKFanni/GMD-Project/blob/main/BlogPost6.md
 https://youtu.be/gfLooFYvOhY?feature=shared
 
 <h2>Try out the game here The game can be played <a href="https://bkfanni.github.io/GMD-Project/">here</a></h2>
+
+<h2>Assets used for development:</h2>
+<ul>
+  <li><a href="https://assetstore.unity.com/packages/2d/characters/sunny-land-103349">Game world</a></li>
+  <li><a href="https://assetstore.unity.com/packages/2d/characters/fantasy-medieval-character-pack-81647">Characters</a></li>
+  <li><a href="https://assetstore.unity.com/packages/2d/gui/icons/pixel-art-icon-pack-rpg-158343">Pick up items</a></li>
+  <li><a href="https://assetstore.unity.com/packages/2d/gui/icons/fantasy-free-gui-147682">GUI</a></li>
+</ul>
